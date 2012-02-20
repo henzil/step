@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/jquery-1.7.1.js"></script>
+<style type="text/css">
+	.image1{
+		z-index: 1;
+		width: 139px;
+		height: 142px;
+		position: absolute;
+	}
+	.image1 img{
+		z-index: 2;
+		width: 139px;
+		height: 142px;
+		position: absolute;
+		
+	}
+	.image1 .cover1{
+		z-index: 3;
+		width: 139px;
+		height: 142px;
+		background-color: white;
+		position: absolute;
+	}
+	.animation1{
+		-webkit-transform: translate(0px, 142px) rotate(0deg) scale(1);
+		-webkit-transition-delay: 1s;
+		-webkit-transition-duration: .5s;
+		-webkit-transition-property: all;
+		-webkit-transition-timing-function: ease;
+	} 
+	
+	.image2{
+		z-index: 4;
+		width: 139px;
+		height: 142px;
+		position: absolute;
+	}
+	.image2 img{
+		width: 139px;
+		height: 142px;
+		position: absolute;
+		z-index: 5;
+	}
+	.image2 .cover2{
+		z-index: 7 ;
+		width: 139px;
+		height: 142px;
+		background-color: white;
+		position: absolute;
+	}
+	.animation2{
+		-webkit-transform: translate(0px, 142px) rotate(0deg) scale(1);
+		-webkit-transition-delay: 0.5s;
+		-webkit-transition-duration: .5s;
+		-webkit-transition-property: all;
+		-webkit-transition-timing-function: ease;
+	}
+	
+</style>
+
+</head>
+<body>
+
+<div class="image2">
+	<img alt="错误符号" src="./image/error_symbol2.png">
+	<div class="cover2"></div>
+</div>
+<div class="image1">
+	<img alt="错误符号" src="./image/error_symbol1.png">
+	<div class="cover1"></div>
+</div>
+
+<script type="text/javascript">
+$('.cover2').addClass('animation2');
+$('.cover1').addClass('animation1');
+</script>
+</body>
+</html>

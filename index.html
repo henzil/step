@@ -1,1 +1,87 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/jquery-1.7.1.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="328px" height="284px"></canvas>
+<script type="text/javascript">
+var c = document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+//Create a timer
+var index = 0;
+g_timer1 = setInterval(renderLoop, Math.floor(1000 / 60));
+
+function renderLoop() {
+    if (index > 850) index = 0;
+    index += 5;
+    draw(index);
+}
+
+function draw(x) {
+	
+    if(x<125){
+    	ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, 328, 284); 
+        var img=new Image();
+        img.src="./image/error_symbol2.png";
+        
+        ctx.drawImage(img, 123, 72, 139, 142);
+        
+        ctx.fillStyle = "white";
+    	ctx.fillRect(140, 80+x, 120, 125-x); 
+    } else {
+    	// Create a white background
+        ctx.fillStyle = "white";
+    	ctx.fillRect(0, 0, 328, 284); 
+    	if(x<250){
+    		img=new Image();
+    		img.src="./image/error_symbol1.png";
+            ctx.drawImage(img, 133, 72, 137, 126);
+        	ctx.fillStyle = "white";
+        	ctx.fillRect(140, 80+x-125, 120, 250-x); 
+        	
+    		img.src="./image/error_symbol2.png";
+            ctx.drawImage(img, 123, 72, 139, 142);
+    	} else {
+            ctx.lineWidth = 112;
+            x=(x-250)/300;
+        	if(x<=1){
+        		img=new Image();
+                img.src="./image/error_symbol3.png";
+                ctx.drawImage(img, 0, 0, 328, 284); 
+        		ctx.beginPath();
+        		ctx.strokeStyle = "white";
+        		ctx.arc(188, 133, 120, Math.PI*2-Math.PI*0.1, Math.PI-Math.PI*0.1, true);
+        		ctx.stroke();
+        		ctx.beginPath();
+        		ctx.strokeStyle = "white";
+        		ctx.arc(188, 133, 120, -Math.PI*0.1, (1-x)*Math.PI-Math.PI*0.1, false);
+        		ctx.stroke();
+        		img.src="./image/error_symbol1.png";
+                ctx.drawImage(img, 133, 72, 137, 126);
+                img.src="./image/error_symbol2.png";
+                ctx.drawImage(img, 123, 72, 139, 142);
+        	} else {
+        		img=new Image();
+                img.src="./image/error_symbol3.png";
+                ctx.drawImage(img, 0, 0, 328, 284);
+        		ctx.beginPath();
+        		ctx.strokeStyle = "white";
+        		ctx.arc(188, 133, 120, Math.PI*(3-x)-Math.PI*0.1, Math.PI-Math.PI*0.1, true);
+        		ctx.stroke();
+        		img.src="./image/error_symbol1.png";
+                ctx.drawImage(img, 133, 72, 137, 126);
+                img.src="./image/error_symbol2.png";
+                ctx.drawImage(img, 123, 72, 139, 142);
+        	}
+    	}
+    }
+}
+
+</script>
+
+</body>
+</html>
